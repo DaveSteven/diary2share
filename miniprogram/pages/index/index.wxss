@@ -1,6 +1,15 @@
 /**index.wxss**/
 
 page {
-  width: 100%;
   background: #f6f6f6;
+}
+
+.banner {
+  background: #ccc;
+  height: 150px;
+}
+
+.main {
+  padding: 30px;
+  font-size: 14px;
 }
