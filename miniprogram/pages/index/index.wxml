@@ -2,7 +2,7 @@
 <view class="banner"></view>
 <view class="main text-center">
   <text>您尚未加入小组，您可以：</text>
-  <i-button type="primary">加入小组</i-button>
+  <i-button type="primary" bind:click="joinGroup">加入小组</i-button>
   <text>or</text>
-  <i-button type="primary">创建小组</i-button>
+  <i-button type="primary" bind:click="createGroup">创建小组</i-button>
 </view>

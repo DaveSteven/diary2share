@@ -1,0 +1,4 @@
+/* miniprogram/pages/groups/groups.wxss */
+.group-item {
+  margin-top: 5px;
+}

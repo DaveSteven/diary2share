@@ -1,0 +1,19 @@
+<!--miniprogram/pages/groupDetail/groupDetail.wxml-->
+<view class='pt10'>
+  <i-cell-group>
+      <i-cell title="小组名称" value="Run分享"></i-cell>
+      <i-cell title="创建时间" value="2018-10-02"></i-cell>
+      <i-cell title="创建人">
+        <view slot="footer">
+          <i-avatar src="https://i.loli.net/2017/08/21/599a521472424.jpg" size="small"></i-avatar>
+          <text class="ml5">约翰</text>
+        </view>
+      </i-cell>
+      <i-cell title="小组简介">
+        <view slot="footer" class="text">阿斯顿发送到发多少</view>
+      </i-cell>
+  </i-cell-group>
+</view>
+<view class='fixed-bottom'>
+  <i-button type="primary" long="true" bind:click="join">立即加入</i-button>
+</view>

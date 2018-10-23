@@ -1,2 +1,12 @@
-<!--miniprogram/pages/addGroup/addGroup.wxml-->
-<text>miniprogram/pages/addGroup/addGroup.wxml</text>
+<view>
+  <i-panel title="基础信息">
+    <i-input title="小组名称" placeholder='小组名称' />
+    <i-input title="小组简介" type="textarea" placeholder='小组简介（最多50字）' maxlength="50" />
+  </i-panel>
+  <i-panel title="其他设置">
+    <i-input title="小组密码" type="password" placeholder='小组密码' />
+  </i-panel>
+</view>
+<view class="fixed-bottom">
+  <i-button type="primary" long="true">立即创建</i-button>
+</view>

@@ -1,0 +1,33 @@
+<!--miniprogram/pages/groups/groups.wxml-->
+<view class="group-list">
+  <view class="group-item" bindtap='viewDetail'>
+    <i-card
+      title="Run分享小组"
+      full="true"
+      extra="已加入{{group.joined}}人"
+      thumb="https://i.loli.net/2017/08/21/599a521472424.jpg
+    >
+      <view slot="footer">创建时间：2018-09-01</view>
+    </i-card>
+  </view>
+  <view class="group-item" bindtap='viewDetail'>
+    <i-card
+      title="Run分享小组"
+      full="true"
+      extra="已加入{{group.joined}}人"
+      thumb="https://i.loli.net/2017/08/21/599a521472424.jpg
+    >
+      <view slot="footer">创建时间：2018-09-01</view>
+    </i-card>
+  </view>
+  <view class="group-item" bindtap='viewDetail'>
+    <i-card
+      title="Run分享小组"
+      full="true"
+      extra="已加入{{group.joined}}人"
+      thumb="https://i.loli.net/2017/08/21/599a521472424.jpg
+    >
+      <view slot="footer">创建时间：2018-09-01</view>
+    </i-card>
+  </view>
+</view>

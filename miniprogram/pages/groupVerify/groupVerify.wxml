@@ -1,0 +1,7 @@
+<!--miniprogram/pages/groupVerify/groupVerify.wxml-->
+<view class='pt10'>
+  <i-panel>
+    <i-input title="密码" placeholder='请输入小组密码' />
+  </i-panel>
+  <i-button type="primary">确认</i-button>
+</view>

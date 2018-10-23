@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "创建小组",
+  "navigationBarTitleText": "加入验证",
   "usingComponents": {
     "i-button": "../../../iview/button/index",
     "i-input": "../../../iview/input/index",
