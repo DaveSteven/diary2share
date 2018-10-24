@@ -1,12 +1,33 @@
 <view>
   <i-panel title="基础信息">
-    <i-input title="小组名称" placeholder='小组名称' />
-    <i-input title="小组简介" type="textarea" placeholder='小组简介（最多50字）' maxlength="50" />
+    <i-input
+      title="小组名称"
+      value="{{name}}"
+      placeholder="小组名称"
+      bind:blur="bindNameInput"
+    />
+    <i-input
+      title="小组简介"
+      value="{{introduce}}"
+      type="textarea"
+      placeholder='小组简介（最多50字）'
+      maxlength="50"
+      bind:blur="bindIntroInput"
+     />
   </i-panel>
   <i-panel title="其他设置">
-    <i-input title="小组密码" type="password" placeholder='小组密码' />
+    <i-input
+      title="小组密码"
+      value="{{password}}"
+      type="password"
+      placeholder='小组密码'
+      bind:blur="bindPasswordInput"
+    />
   </i-panel>
 </view>
+<view>
+  <input></input>
+</view>
 <view class="fixed-bottom">
-  <i-button type="primary" long="true">立即创建</i-button>
+  <i-button type="primary" long="true" bind:click="createGroup">立即创建</i-button>
 </view>

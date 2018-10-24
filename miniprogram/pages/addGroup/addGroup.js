@@ -1,66 +1,63 @@
 // miniprogram/pages/addGroup/addGroup.js
+const api = getApp().globalData.api;
+
 Page({
 
   /**
    * Page initial data
    */
   data: {
-
+    name: '',
+    introduce: '',
+    password: ''
   },
 
-  /**
-   * Lifecycle function--Called when page load
-   */
-  onLoad: function (options) {
-
+  bindNameInput(e) {
+    const value = e.detail.detail.value;
+    if (value) {
+      this.setData({
+        name: value
+      })
+    }
   },
 
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
+  bindIntroInput(e) {
+    const value = e.detail.detail.value;
+    if (value) {
+      this.setData({
+        introduce: value
+      })
+    }
   },
 
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
+  bindPasswordInput(e) {
+    const value = e.detail.detail.value;
+    if (value) {
+      this.setData({
+        password: value
+      })
+    }
   },
 
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
+  createGroup: function () {
+    wx.showLoading({
+      title: '正在创建',
+    });
+    api.createGroup({
+      name: this.data.name,
+      introduce: this.data.introduce,
+      password: this.data.password,
+      createTime: new Date()
+    }).then(res => {
+      wx.hideLoading();
+      wx.showToast({
+        title: '创建成功！',
+      })
+      setTimeout(() => {
+        wx.switchTab({
+          url: '/pages/index/index'
+        });
+      }, 1500)
+    })
   }
 })

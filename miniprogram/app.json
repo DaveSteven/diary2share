@@ -1,11 +1,11 @@
 {
   "cloud": true,
   "pages": [
-    "pages/groupDetail/groupDetail",
     "pages/index/index",
     "pages/my/my",
     "pages/addGroup/addGroup",
     "pages/groups/groups",
+    "pages/groupDetail/groupDetail",
     "pages/groupVerify/groupVerify"
   ],
   "window": {

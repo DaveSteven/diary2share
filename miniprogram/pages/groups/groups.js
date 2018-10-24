@@ -1,4 +1,7 @@
 // miniprogram/pages/groups/groups.js
+const app = getApp().globalData;
+const api = app.api;
+
 Page({
 
   /**
@@ -7,12 +10,25 @@ Page({
   data: {
     group: {
       joined: 23
-    }
+    },
+    groupList: []
   },
-  viewDetail: function() {
+  onReady: function () {
+    this.getGroups();
+  },
+  viewDetails: function () {
     console.log('click')
     wx.navigateTo({
       url: '../groupDetail/groupDetail',
+    })
+  },
+  getGroups: function () {
+    wx.showLoading();
+    api.getGroups().then(res => {
+      this.setData({
+        groupList: res.data
+      })
+      wx.hideLoading();
     })
   }
 })

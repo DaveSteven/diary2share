@@ -8,3 +8,9 @@
   padding: 30px;
   font-size: 14px;
 }
+
+.btn-groups {
+  display: flex;
+  justify-items: center;
+  text-align: center;
+}

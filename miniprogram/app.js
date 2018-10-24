@@ -1,4 +1,6 @@
 //app.js
+const api = require('api/groups.js');
+
 App({
   onLaunch: function () {
     
@@ -10,6 +12,32 @@ App({
       })
     }
 
-    this.globalData = {}
+    this.globalData = {
+      api
+    }
+
+    this.onGetOpenid();
+  },
+  onGetOpenid: function () {
+    wx.showLoading();
+    // 调用云函数
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {},
+      success: res => {
+        console.log('[云函数] [login] user openid: ', res.result.openid)
+        this.globalData.openid = res.result.openid
+        // wx.navigateTo({
+        //   url: '../userConsole/userConsole',
+        // })
+        wx.hideLoading();
+      },
+      fail: err => {
+        console.error('[云函数] [login] 调用失败', err)
+        wx.navigateTo({
+          url: '../deployFunctions/deployFunctions',
+        })
+      }
+    })
   }
 })
