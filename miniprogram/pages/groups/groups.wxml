@@ -2,12 +2,12 @@
 <view class="group-list">
   <view wx:for="{{groupList}}" class="group-item" bindtap='viewDetails'>
     <i-card
-      title="{{item.title}}"
+      title="{{item.name}}"
       full="true"
       extra="已加入{{group.joined}}人"
       thumb="https://i.loli.net/2017/08/21/599a521472424.jpg
     >
-      <view slot="footer">创建时间：2018-09-01</view>
+      <view slot="footer">创建时间：{{item.createTime}}</view>
     </i-card>
   </view>
 </view>

@@ -43,11 +43,16 @@ Page({
     wx.showLoading({
       title: '正在创建',
     });
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const strDate = `${year}-${month}-${day}`;
     api.createGroup({
       name: this.data.name,
       introduce: this.data.introduce,
       password: this.data.password,
-      createTime: new Date()
+      createTime: strDate
     }).then(res => {
       wx.hideLoading();
       wx.showToast({

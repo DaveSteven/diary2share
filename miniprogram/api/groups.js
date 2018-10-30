@@ -23,6 +23,18 @@ const api = {
       })
     })
   },
+  getGroupDetail: function ({groupid}) {
+    return new Promise((resolve, reject) => {
+      db.collection('groups').where({
+        _id: groupid
+      }).get().then(res => {
+        res.data = res.data[0] || {};
+        resolve(res);
+      }).catch(err => {
+        reject(err);
+      })
+    })
+  },
   createGroup: function (data) {
     return new Promise((resolve, reject) => {
       db.collection('groups').add({

@@ -1,5 +1,6 @@
 /**index.wxss**/
 .banner {
+  margin-bottom: 10px;
   background: #ccc;
   height: 150px;
 }
@@ -10,7 +11,19 @@
 }
 
 .btn-groups {
-  display: flex;
-  justify-items: center;
   text-align: center;
+}
+
+.btn-groups .btn {
+  display: inline-block;
+}
+
+.group-list .title {
+  margin-bottom: 5px;
+  padding-left: 15px;
+  font-size: 14px;
+}
+
+.group-item {
+  margin-bottom: 10px;
 }

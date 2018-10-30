@@ -1,0 +1,5 @@
+<!--miniprogram/pages/writeDiary/writeDiary.wxml-->
+<view>
+  <textarea class="diary-input" placeholder="日记写在这里哦"></textarea>
+  <i-button type="primary">立即发布</i-button>
+</view>

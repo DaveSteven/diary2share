@@ -1,0 +1,20 @@
+<!--miniprogram/pages/groupHome/groupHome.wxml-->
+<view class="banner">
+  <view class="title">
+    <text>{{groupInfo.name}}</text>
+  </view>
+  <view class="text">
+    <text>{{groupInfo.introduce}}</text>
+  </view>
+</view>
+<view class="diary-wrapper">
+  <view class="title text-center">
+    <text>今日分享</text>
+  </view>
+  <view class='diary-container'>
+    <view class="diary-item"></view>
+  </view>
+</view>
+<view class="fixed-bottom">
+  <i-button type="primary" bind:click="writeDiary" long><i-icon type="editor" />写日记</i-button>
+</view>

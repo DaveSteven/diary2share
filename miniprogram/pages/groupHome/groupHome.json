@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "小组首页",
+  "usingComponents": {
+    "i-button": "../../../iview/button/index",
+    "i-icon": "../../../iview/icon/index"
+  }
+}

@@ -2,13 +2,11 @@
   <i-panel title="基础信息">
     <i-input
       title="小组名称"
-      value="{{name}}"
       placeholder="小组名称"
       bind:blur="bindNameInput"
     />
     <i-input
       title="小组简介"
-      value="{{introduce}}"
       type="textarea"
       placeholder='小组简介（最多50字）'
       maxlength="50"
@@ -18,7 +16,6 @@
   <i-panel title="其他设置">
     <i-input
       title="小组密码"
-      value="{{password}}"
       type="password"
       placeholder='小组密码'
       bind:blur="bindPasswordInput"

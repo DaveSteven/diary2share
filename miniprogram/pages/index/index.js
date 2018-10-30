@@ -34,5 +34,14 @@ Page({
     wx.navigateTo({
       url: '../groups/groups',
     })
+  },
+  viewGroup: function (e) {
+    console.log(e)
+    const index = e.target.dataset.index;
+    const groupid = this.data.groups[index]._id;
+    wx.setStorageSync('group_id', groupid);
+    wx.navigateTo({
+      url: '/pages/groupHome/groupHome',
+    })
   }
 })
