@@ -17,7 +17,6 @@ Page({
     this.getGroups();
   },
   viewDetails: function () {
-    console.log('click')
     wx.navigateTo({
       url: '../groupDetail/groupDetail',
     })

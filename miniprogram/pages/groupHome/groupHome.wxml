@@ -12,7 +12,15 @@
     <text>今日分享</text>
   </view>
   <view class='diary-container'>
-    <view class="diary-item"></view>
+    <view wx:for="{{diaryList}}" class="diary-item">
+      <view class="avatar">
+        <image src="{{item.userInfo.avatar}}"></image>
+      </view>
+      <view class="content">
+        <view class="name">{{item.userInfo.name}}</view>
+        <view class="text">{{item.content}}</view>
+      </view>
+    </view>
   </view>
 </view>
 <view class="fixed-bottom">

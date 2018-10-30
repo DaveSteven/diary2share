@@ -2,6 +2,7 @@
   "navigationBarTitleText": "写日记",
   "usingComponents": {
     "i-input": "../../../iview/input/index",
-    "i-button": "../../../iview/button/index"
+    "i-button": "../../../iview/button/index",
+    "i-message": "../../../iview/message/index"
   }
 }

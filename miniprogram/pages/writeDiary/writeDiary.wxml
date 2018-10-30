@@ -1,5 +1,8 @@
 <!--miniprogram/pages/writeDiary/writeDiary.wxml-->
-<view>
-  <textarea class="diary-input" placeholder="日记写在这里哦"></textarea>
-  <i-button type="primary">立即发布</i-button>
+<view class="form-wrapper">
+  <form bindsubmit="submit">
+    <textarea class="diary-input" placeholder="日记写在这里哦" name="content" auto-focus></textarea>
+    <button class="i-btn i-btn-primary" hover-class="i-btn-hover" form-type="submit">立即发布</button>
+  </form>
 </view>
+<i-message id="message" />

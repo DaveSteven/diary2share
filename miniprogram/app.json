@@ -7,8 +7,9 @@
     "pages/groups/groups",
     "pages/groupDetail/groupDetail",
     "pages/groupVerify/groupVerify",
+    "pages/writeDiary/writeDiary",
     "pages/groupHome/groupHome",
-    "pages/writeDiary/writeDiary"
+    "pages/login/login"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

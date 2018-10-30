@@ -1,0 +1,4 @@
+<!--miniprogram/pages/login/login.wxml-->
+<view class="wrapper">
+  <i-button bind:click="login">授权登录</i-button>
+</view>

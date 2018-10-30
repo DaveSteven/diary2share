@@ -45,6 +45,29 @@ const api = {
         reject(err);
       })
     })
+  },
+  // 日记相关
+  postDiary: function (data) {
+    return new Promise((resolve, reject) => {
+      db.collection('diary').add({
+        data: data
+      }).then(res => {
+        resolve(res);
+      }).catch(err => {
+        reject(err);
+      })
+    })
+  },
+  getDiaryListByGroupid: function ({groupid}) {
+    return new Promise((resolve, reject) => {
+      db.collection('diary').where({
+        groupid: groupid
+      }).get().then(res => {
+        resolve(res);
+      }).catch(err => {
+        reject(err);
+      })
+    })
   }
 }
 

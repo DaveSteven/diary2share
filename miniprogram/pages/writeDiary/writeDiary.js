@@ -1,66 +1,36 @@
 // miniprogram/pages/writeDiary/writeDiary.js
+const data = getApp().globalData;
+const api = data.api;
+const { $Message } = require('../../iview/base/index');
+
 Page({
-
-  /**
-   * Page initial data
-   */
-  data: {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page load
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
+  submit: function (e) {
+    wx.showLoading();
+    const content = e.detail.value.content;
+    if (content) {
+      api.postDiary({
+        groupid: wx.getStorageSync('group_id'),
+        content,
+        userInfo: {
+          avatar: data.userInfo.avatarUrl,
+          name: data.userInfo.nickName,
+          gender: data.userInfo.gender
+        }
+      }).then(res => {
+        wx.hideLoading();
+        $Message({
+          content: '发布成功！',
+          type: 'success'
+        });
+        setTimeout(() => {
+          wx.navigateBack();
+        }, 1500)
+      })
+    } else {
+      $Message({
+        content: 'oh，你还没有输入内容呢！',
+        type: 'warning'
+      });
+    }
   }
 })

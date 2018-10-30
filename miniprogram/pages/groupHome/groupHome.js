@@ -8,7 +8,8 @@ Page({
    */
   data: {
     groupid: '',
-    groupInfo: {}
+    groupInfo: {},
+    diaryList: []
   },
 
   /**
@@ -25,6 +26,7 @@ Page({
    */
   onReady: function () {
     this.getGroupDetail();
+    this.getDiaryList();
   },
 
   /**
@@ -77,6 +79,19 @@ Page({
         groupInfo: res.data
       })
       console.log(this.data.groupInfo);
+    })
+  },
+
+  getDiaryList: function () {
+    wx.showLoading();
+    api.getDiaryListByGroupid({
+      gropuid: this.data.groupid
+    }).then(res => {
+      wx.hideLoading();
+      this.setData({
+        diaryList: res.data
+      })
+      console.log(this.data.diaryList)
     })
   },
 

@@ -7,8 +7,8 @@ Page({
     groups: [],
     empty: false
   },
-  onLoad: function () {
-    this.getGroups();
+  onReady: function () {
+    this.getGroups()
   },
   onShow: function () {
     this.getGroups();
@@ -36,7 +36,6 @@ Page({
     })
   },
   viewGroup: function (e) {
-    console.log(e)
     const index = e.target.dataset.index;
     const groupid = this.data.groups[index]._id;
     wx.setStorageSync('group_id', groupid);
