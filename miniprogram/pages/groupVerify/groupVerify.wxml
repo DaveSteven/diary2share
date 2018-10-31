@@ -1,7 +1,15 @@
 <!--miniprogram/pages/groupVerify/groupVerify.wxml-->
 <view class='pt10'>
-  <i-panel>
-    <i-input title="密码" placeholder='请输入小组密码' />
-  </i-panel>
-  <i-button type="primary">确认</i-button>
+  <form bindsubmit="submit">
+    <view class="i-panel">
+      <view class="i-panel-content">
+        <view class="i-cell i-input">
+          <view class="i-cell-hd i-input-title">小组密码</view>
+          <input name="password" class="i-input-input i-cell-bd" placeholder="小组密码" placeholder-class="i-input-placeholder" type="password"></input>
+        </view>
+      </view>
+    </view>
+    <button form-type="submit" class="i-btn i-btn-primary">确认</button>  
+  </form>
 </view>
+<i-message id="message" />

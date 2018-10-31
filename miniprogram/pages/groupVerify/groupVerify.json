@@ -3,6 +3,7 @@
   "usingComponents": {
     "i-button": "../../../iview/button/index",
     "i-input": "../../../iview/input/index",
-    "i-panel": "../../../iview/panel/index"
+    "i-panel": "../../../iview/panel/index",
+    "i-message": "../../../iview/message/index"
   }
 }

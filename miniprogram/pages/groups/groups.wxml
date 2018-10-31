@@ -1,6 +1,6 @@
 <!--miniprogram/pages/groups/groups.wxml-->
 <view class="group-list">
-  <view wx:for="{{groupList}}" wx:key="{{item._id}}" class="group-item" bindtap='viewDetails'>
+  <view wx:for="{{groupList}}" wx:key="{{item._id}}" class="group-item" bindtap="viewDetails" data-index="{{index}}">
     <i-card
       title="{{item.name}}"
       full="true"

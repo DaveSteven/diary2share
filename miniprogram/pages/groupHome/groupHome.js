@@ -33,7 +33,7 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-
+    this.getDiaryList();
   },
 
   /**
@@ -78,7 +78,6 @@ Page({
       this.setData({
         groupInfo: res.data
       })
-      console.log(this.data.groupInfo);
     })
   },
 
@@ -91,7 +90,6 @@ Page({
       this.setData({
         diaryList: res.data
       })
-      console.log(this.data.diaryList)
     })
   },
 

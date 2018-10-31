@@ -1,18 +1,13 @@
 // miniprogram/pages/login/login.js
 const app = getApp();
+const userInfo = app.userInfo;
+const api = app.globalData.api;
 
 Page({
-  login: function () {
-    // 调用云函数
-    wx.cloud.callFunction({
-      name: 'login',
-      data: {},
-      complete: res => {
-        app.globalData.openid = res.result.openid;
-        wx.switchTab({
-          url: '/pages/index/index',
-        })
-      }
+  onGotUserInfo: function (e) {
+    app.globalData.userInfo = e.detail.userInfo;
+    wx.switchTab({
+      url: '/pages/index/index',
     })
   }
 })

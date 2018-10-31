@@ -16,10 +16,14 @@ Page({
   onReady: function () {
     this.getGroups();
   },
-  viewDetails: function () {
+  viewDetails: function (e) {
+    console.log(e)
+    const index = e.currentTarget.dataset.index;
+    const groupid = this.data.groupList[index]._id;
     wx.navigateTo({
       url: '../groupDetail/groupDetail',
     })
+    wx.setStorageSync('group_id', groupid);
   },
   getGroups: function () {
     wx.showLoading();

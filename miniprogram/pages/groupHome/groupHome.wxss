@@ -28,6 +28,10 @@
   display: flex;
 }
 
+.diary-item + .diary-item {
+  margin-top: 20px;
+}
+
 .diary-item .avatar {
   margin-right: 10px;
   width: 50px;
@@ -38,9 +42,21 @@
   height: 50px;
 }
 
-.diary-item .name {
+.diary-item .content {
+  flex: 1;
+}
+
+.diary-item .userinfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 10px;
   font-size: 16px;
+}
+
+.diary-item .userinfo .time {
+  font-size: 12px;
+  color: #ccc;
 }
 
 .diary-item .text {

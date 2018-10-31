@@ -12,14 +12,7 @@ App({
       })
     }
     this.globalData = { api }
-    this.login();
-    if (!this.globalData.openid) {
-      wx.reLaunch({
-        url: '/pages/login/login',
-      })
-    }
-  },
-  login: function () {
+
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -28,8 +21,11 @@ App({
           wx.getUserInfo({
             success: res => {
               this.globalData.userInfo = res.userInfo;
-              console.log(this.globalData)
             }
+          })
+        } else {
+          wx.reLaunch({
+            url: '/pages/login/login'
           })
         }
       }

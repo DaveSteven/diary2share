@@ -1,5 +1,6 @@
 //index.js
 const app = getApp();
+const userInfo = app.userInfo;
 const api = app.globalData.api;
 
 Page({
@@ -7,22 +8,66 @@ Page({
     groups: [],
     empty: false
   },
-  onReady: function () {
-    this.getGroups()
+  onLoad: function () {
+    if (!app.globalData.openid) {
+      this.login().then(() => {
+        this.getGroups();
+        this.findUser();
+      })
+    } else {
+      this.getGroups();
+      this.findUser();
+    }
   },
   onShow: function () {
-    this.getGroups();
+    if (app.globalData.openid) {
+      this.getGroups();
+    }
   },
-  getGroups: function() {
+  login: function () {
+    // 调用云函数
+    return new Promise((resolve, reject) => {
+      wx.cloud.callFunction({
+        name: 'login',
+        data: {},
+        complete: res => {
+          app.globalData.openid = res.result.openid;
+          resolve('success')
+        }
+      })
+    })
+  },
+  getGroups: function () {
     wx.showLoading();
-    api.getGroupsByOpenid({
+    api.getGroupIdByOpenId({
       openid: app.globalData.openid
     }).then(res => {
+      console.log(res)
+      const data = res.data;
+      if (data.length && data[0].groupid) {
+        this.getGroupById(data[0].groupid)
+      } else {
+        this.handleEmpty();
+        wx.hideLoading();
+      }
+    })
+  },
+  getGroupById: function (groupId) {
+    api.getGroupsByGroupId({
+      groupId
+    }).then(res => {
+      console.log(res)
       wx.hideLoading();
       this.setData({
         groups: res.data,
         empty: res.data.length === 0
       })
+    })
+  },
+  handleEmpty: function () {
+    this.setData({
+      groups: [],
+      empty: true
     })
   },
   createGroup: function () {
@@ -41,6 +86,22 @@ Page({
     wx.setStorageSync('group_id', groupid);
     wx.navigateTo({
       url: '/pages/groupHome/groupHome',
+    })
+  },
+  findUser: function () {
+    api.getUserByOpenId({
+      openid: app.globalData.openid
+    }).then(res => {
+      if (!res.data.length) {
+        this.addUser();
+      }
+    })
+  },
+  addUser: function () {
+    api.addUser({
+      groupid: ''
+    }).then(res => {
+      console.log(res)
     })
   }
 })

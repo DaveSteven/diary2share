@@ -1,13 +1,7 @@
 <!--index.wxml-->
 <view class="banner"></view>
-<view wx:if="{{empty}}" class="main text-center">
-  <text>您尚未加入小组，您可以：</text>
-  <i-button type="primary" bind:click="joinGroup">加入小组</i-button>
-  <text>or</text>
-  <i-button type="primary" bind:click="createGroup">创建小组</i-button>
-</view>
 <view wx:if="{{groups.length && !empty}}" class="group-list">
-  <view class="title">已加入的小组</view>
+  <view class="title">我的小组</view>
   <i-cell
     i-class="group-item"
     wx:for="{{groups}}"
@@ -19,8 +13,10 @@
   >
     <i-icon type="group_fill" slot="icon" />
   </i-cell>
-  <view class="btn-groups">
-    <i-button i-class="btn" type="primary" size="small" bind:click="joinGroup">加入小组</i-button>
-    <i-button i-class="btn" type="primary" size="small" bind:click="createGroup">创建小组</i-button>
-  </view>
+</view>
+<view wx:if="{{empty}}" class="main text-center">
+  <text>您尚未加入小组，您可以：</text>
+  <i-button type="primary" bind:click="joinGroup">加入小组</i-button>
+  <text>or</text>
+  <i-button type="primary" bind:click="createGroup">创建小组</i-button>
 </view>

@@ -1,5 +1,7 @@
 // miniprogram/pages/addGroup/addGroup.js
-const api = getApp().globalData.api;
+const app = getApp();
+const userInfo = app.globalData.userInfo;
+const api = app.globalData.api;
 
 Page({
 
@@ -39,6 +41,26 @@ Page({
     }
   },
 
+  updateUserInfo: function (userid, groupid) {
+    api.updateUserInfo({
+      userid,
+      groupid
+    }).then(res => {
+      wx.switchTab({
+        url: '/pages/index/index'
+      });
+    })
+  },
+
+  getUserId: function (groupid) {
+    api.getUserByOpenId({
+      openid: app.globalData.openid
+    }).then(res => {
+      const userid = res.data[0]._id;
+      this.updateUserInfo(userid, groupid);
+    })
+  },
+
   createGroup: function () {
     wx.showLoading({
       title: '正在创建',
@@ -58,11 +80,7 @@ Page({
       wx.showToast({
         title: '创建成功！',
       })
-      setTimeout(() => {
-        wx.switchTab({
-          url: '/pages/index/index'
-        });
-      }, 1500)
+      this.getUserId(res._id);
     })
   }
 })
