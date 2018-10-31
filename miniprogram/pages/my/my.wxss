@@ -1,1 +1,47 @@
 /* miniprogram/pages/my/my.wxml.wxss */
+.user-panel {
+  position: relative;
+  height: 150px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('https://6469-diary2share-3017d4-1257834303.tcb.qcloud.la/praying.jpg?sign=f61f94807fa5756dcf6a8ef82c980434&t=1540985422');
+  z-index:1;
+  overflow: hidden;
+}
+
+.user-panel .avatar {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  text-align: center;
+  color: #fff;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.user-panel:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: inherit;
+  filter: blur(4px);
+  z-index: 2;
+}
+
+.user-panel .avatar {
+  margin-right: 15px;
+  width: 60px;
+}
+
+.user-panel .avatar image {
+  width: 100%;
+  height: 60px;
+  border-radius: 100%;
+}
+
+.user-panel .name {
+  font-size: 14px;
+}

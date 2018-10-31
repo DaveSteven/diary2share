@@ -1,2 +1,7 @@
 <!--miniprogram/pages/my/my.wxml.wxml-->
-<text>miniprogram/pages/my/my.wxml.wxml</text>
+<view class="user-panel">
+  <view class="avatar">
+    <image src="{{avatarUrl}}"></image>
+    <text class="name">{{userInfo.nickName}}</text>
+  </view>
+</view>
