@@ -2,6 +2,7 @@
 const app = getApp();
 const userInfo = app.globalData.userInfo;
 const api = app.globalData.api;
+const MD5 = require('../../utils/md5.js')
 
 Page({
 
@@ -14,7 +15,11 @@ Page({
     password: ''
   },
 
-  bindNameInput(e) {
+  onReady: function () {
+    console.log(MD5)
+  },
+
+  bindNameInput: function (e) {
     const value = e.detail.detail.value;
     if (value) {
       this.setData({
@@ -23,7 +28,7 @@ Page({
     }
   },
 
-  bindIntroInput(e) {
+  bindIntroInput: function (e) {
     const value = e.detail.detail.value;
     if (value) {
       this.setData({
@@ -32,7 +37,7 @@ Page({
     }
   },
 
-  bindPasswordInput(e) {
+  bindPasswordInput: function (e) {
     const value = e.detail.detail.value;
     if (value) {
       this.setData({
@@ -65,16 +70,10 @@ Page({
     wx.showLoading({
       title: '正在创建',
     });
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    const strDate = `${year}-${month}-${day}`;
     api.createGroup({
       name: this.data.name,
       introduce: this.data.introduce,
-      password: this.data.password,
-      createTime: strDate
+      password: MD5(this.data.password)
     }).then(res => {
       wx.hideLoading();
       wx.showToast({

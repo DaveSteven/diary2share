@@ -1,5 +1,6 @@
 //app.js
 const api = require('api/index.js');
+const utils = require('utils/index.js');
 
 App({
   onLaunch: function () {
@@ -11,7 +12,7 @@ App({
         traceUser: true,
       })
     }
-    this.globalData = { api }
+    this.globalData = { api, utils }
 
     // 获取用户信息
     wx.getSetting({

@@ -1,5 +1,6 @@
 /* miniprogram/pages/groupHome/groupHome.wxss */
 .banner {
+  position: relative;
   padding: 15px 30px;
   margin-bottom: 10px;
   background: #fff;
@@ -14,8 +15,14 @@
   font-size: 12px;
 }
 
+.banner .setting {
+  position: absolute;
+  right: 20px;
+  top: 12px;
+}
+
 .diary-wrapper {
-  padding: 0 15px;
+  padding: 0 15px 15px;
   background: #fff;
 }
 

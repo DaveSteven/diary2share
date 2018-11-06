@@ -1,5 +1,6 @@
 // miniprogram/pages/groupHome/groupHome.js
 const api = getApp().globalData.api;
+const utils = getApp().globalData.utils;
 
 Page({
 
@@ -19,14 +20,7 @@ Page({
     this.setData({
       groupid: wx.getStorageSync('group_id')
     })
-  },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
     this.getGroupDetail();
-    this.getDiaryList();
   },
 
   /**
@@ -87,6 +81,9 @@ Page({
       gropuid: this.data.groupid
     }).then(res => {
       wx.hideLoading();
+      res.data.forEach(item => {
+        item.createTime = utils.getTime(item.createTime);
+      })
       this.setData({
         diaryList: res.data
       })
@@ -97,5 +94,9 @@ Page({
     wx.navigateTo({
       url: '/pages/writeDiary/writeDiary',
     })
+  },
+  
+  setting: function (e) {
+    console.log(e);
   }
 })

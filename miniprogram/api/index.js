@@ -2,6 +2,7 @@ wx.cloud.init();
 
 const db = wx.cloud.database();
 const _ = db.command;
+const utils = require('../utils/index.js');
 
 const api = {
   getGroups: function () {
@@ -14,7 +15,6 @@ const api = {
     })
   },
   getGroupsByGroupId: function ({groupId}) {
-    console.log(groupId)
     return new Promise((resolve, reject) => {
       db.collection('groups').where({
         _id: groupId
@@ -51,7 +51,10 @@ const api = {
   createGroup: function (data) {
     return new Promise((resolve, reject) => {
       db.collection('groups').add({
-        data: data
+        data: {
+          ...data,
+          createTime: db.serverDate()
+        }
       }).then(res => {
         resolve(res);
       }).catch(err => {
@@ -117,7 +120,10 @@ const api = {
   postDiary: function (data) {
     return new Promise((resolve, reject) => {
       db.collection('diary').add({
-        data: data
+        data: {
+          ...data,
+          createTime: db.serverDate(),
+        }
       }).then(res => {
         resolve(res);
       }).catch(err => {
@@ -126,16 +132,13 @@ const api = {
     })
   },
   getDiaryListByGroupid: function ({groupid}) {
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    const strDate = `${year}-${month}-${day}`;
     return new Promise((resolve, reject) => {
       db.collection('diary').where({
-        groupid: groupid,
-        createDate: strDate
-      }).get().then(res => {
+        groupid,
+        createTime: _.gt(utils.getStartDate())
+      }).orderBy('createTime', 'desc')
+      .get()
+      .then(res => {
         resolve(res);
       }).catch(err => {
         reject(err);

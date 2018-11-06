@@ -17,7 +17,6 @@ Page({
     this.getGroups();
   },
   viewDetails: function (e) {
-    console.log(e)
     const index = e.currentTarget.dataset.index;
     const groupid = this.data.groupList[index]._id;
     wx.navigateTo({

@@ -42,7 +42,6 @@ Page({
     api.getGroupIdByOpenId({
       openid: app.globalData.openid
     }).then(res => {
-      console.log(res)
       const data = res.data;
       if (data.length && data[0].groupid) {
         this.getGroupById(data[0].groupid)
@@ -56,7 +55,6 @@ Page({
     api.getGroupsByGroupId({
       groupId
     }).then(res => {
-      console.log(res)
       wx.hideLoading();
       this.setData({
         groups: res.data,

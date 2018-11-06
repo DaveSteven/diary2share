@@ -1,8 +1,9 @@
 /**index.wxss**/
 .banner {
   margin-bottom: 10px;
-  background: #ccc;
   height: 150px;
+  background: url('https://6469-diary2share-3017d4-1257834303.tcb.qcloud.la/banner.jpg?sign=fb8dac2cbee2acfc5619c2c34386b52d&t=1541229572') center center no-repeat;
+  background-size: cover;
 }
 
 .main {

@@ -1,0 +1,4 @@
+<!--miniprogram/pages/setting/setting.wxml-->
+<view>
+  <i-button bind:click="handleExit">退出小组</i-button>
+</view>

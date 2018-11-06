@@ -1,6 +1,7 @@
 // miniprogram/pages/groupVerify/groupVerify.js
 const app = getApp();
 const api = getApp().globalData.api;
+const MD5 = require('../../utils/md5.js')
 const { $Message } = require('../../iview/base/index');
 
 Page({
@@ -33,7 +34,7 @@ Page({
   },
 
   submit: function (e) {
-    const password = e.detail.value.password;
+    const password = MD5(e.detail.value.password);
     if (!password) {
       $Message({
         content: '请输入小组密码',

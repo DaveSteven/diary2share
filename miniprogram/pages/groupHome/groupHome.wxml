@@ -6,6 +6,7 @@
   <view class="text">
     <text>{{groupInfo.introduce}}</text>
   </view>
+  <view class="setting" bindtap="setting"><i-icon type="setup" size="24" /></view>
 </view>
 <view class="diary-wrapper">
   <view class="title text-center">
