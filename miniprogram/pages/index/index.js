@@ -97,7 +97,9 @@ Page({
   },
   addUser: function () {
     api.addUser({
-      groupid: ''
+      groupid: '',
+      name: app.globalData.userInfo.nickName,
+      avatar: app.globalData.userInfo.avatarUrl
     }).then(res => {
       console.log(res)
     })

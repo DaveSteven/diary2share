@@ -23,6 +23,16 @@ const utils = {
     const m = this.zeroFill(d.getMinutes());
     const s = this.zeroFill(d.getSeconds());
     return `${h}:${m}:${s}`
+  },
+  dateFormat: function (date) {
+    date = new Date(date);
+    const y = date.getFullYear();
+    const M = this.zeroFill(date.getMonth() + 1);
+    const d = this.zeroFill(date.getDate());
+    const h = this.zeroFill(date.getHours());
+    const m = this.zeroFill(date.getMinutes());
+    const s = this.zeroFill(date.getSeconds());
+    return `${y}-${M}-${d} ${h}:${m}:${s}`;
   }
 }
 

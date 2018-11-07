@@ -1,4 +1,7 @@
 // miniprogram/pages/setting/setting.js
+const api = getApp().globalData.api;
+const app = getApp();
+
 Page({
 
   /**
@@ -65,6 +68,12 @@ Page({
   },
 
   handleExit: function () {
-    
+    api.exitGroup({
+      openid: app.globalData.openid
+    }).then(res => {
+      wx.switchTab({
+        url: '/pages/index/index'
+      })
+    })
   }
 })

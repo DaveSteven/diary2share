@@ -1,6 +1,7 @@
 // miniprogram/pages/groups/groups.js
 const app = getApp().globalData;
 const api = app.api;
+const utils = app.utils;
 
 Page({
 
@@ -27,6 +28,9 @@ Page({
   getGroups: function () {
     wx.showLoading();
     api.getGroups().then(res => {
+      res.data.forEach(item => {
+        item.createTime = utils.dateFormat(item.createTime)
+      })
       this.setData({
         groupList: res.data
       })

@@ -80,6 +80,30 @@ const api = {
       })
     })
   },
+  exitGroup: function ({openid}) {
+    return new Promise((resolve, reject) => {
+      db.collection('users').where({
+        _openid: openid
+      }).get().then(res => {
+        const data = res.data[0];
+        console.log(data)
+        db.collection('users').doc(data._id).update({
+          data: {
+            groupid: ''
+          }
+        }).then(res => {
+          resolve({
+            message: 'exit success'
+          })
+        }).catch(err => {
+          console.log(err)
+          reject({
+            message: 'exit fail'
+          })
+        })
+      })
+    })
+  },
   // 用户相关
   addUser: function (data) {
     return new Promise((resolve, reject) => {
@@ -93,13 +117,14 @@ const api = {
     })
   },
   getUserByOpenId: function ({openid}) {
+    console.log(openid)
     return new Promise((resolve, reject) => {
       db.collection('users').where({
-        _openid: openid
+        _openid: _.eq(openid)
       }).get().then(res => {
         resolve(res);
-      }).catch(res => {
-        reject(res);
+      }).catch(err => {
+        reject(err);
       })
     })
   },

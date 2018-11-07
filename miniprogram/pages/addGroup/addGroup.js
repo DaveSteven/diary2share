@@ -15,10 +15,6 @@ Page({
     password: ''
   },
 
-  onReady: function () {
-    console.log(MD5)
-  },
-
   bindNameInput: function (e) {
     const value = e.detail.detail.value;
     if (value) {
@@ -73,7 +69,8 @@ Page({
     api.createGroup({
       name: this.data.name,
       introduce: this.data.introduce,
-      password: MD5(this.data.password)
+      password: MD5(this.data.password),
+      creatorId: app.globalData.openid
     }).then(res => {
       wx.hideLoading();
       wx.showToast({
