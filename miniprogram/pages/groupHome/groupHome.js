@@ -97,6 +97,8 @@ Page({
   },
   
   setting: function (e) {
-    console.log(e);
+    wx.navigateTo({
+      url: '/pages/setting/setting',
+    })
   }
 })
